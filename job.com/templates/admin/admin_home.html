@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<style>
+    npm install chart.js --save
+</style>
+
+<style>
+    .order-card {
+        color: #fff;
+    }
+    
+    .bg-c-blue {
+        background: linear-gradient(45deg,#4099ff,#73b4ff);
+    }
+    
+    .bg-c-green {
+        background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+    }
+    
+    .bg-c-yellow {
+        background: linear-gradient(45deg,#FFB64D,#ffcb80);
+    }
+    
+    .bg-c-pink {
+        background: linear-gradient(45deg,#FF5370,#ff869a);
+    }
+    
+    
+    .card {
+        border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+        box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+        border: none;
+        margin-bottom: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .card .card-block {
+        padding: 25px;
+    }
+    
+    .order-card i {
+        font-size: 26px;
+    }
+    
+    .f-left {
+        float: left;
+    }
+    
+    .f-right {
+        float: right;
+    }
+</style>
+
+<div class="container">
+    <h3 style="text-align: center;color: indigo;" >Admin Dashbored</h3>
+    <div class="row">
+        
+            <div class="col-md-4 col-xl-6">
+                <div class="card bg-c-blue order-card">
+                    <a href="{% url 'admin_employees_details' %}">
+                    <div class="card-block">
+                        <h6 class="m-b-20" style="text-align: center;" >Employees</h6>
+                        <i style="color: crimson;font-size: 100px;" class="fa fa-3x fa-users  mb-4"></i>
+                        <h2  class="f-right"><span>{{emplen}}</span></h2>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        
+
+        
+            <div class="col-md-4 col-xl-6">
+                <div class="card bg-c-green order-card">
+                    <a href="{% url 'admin_companies_details' %}">
+                        <div class="card-block">
+                            <h6 class="m-b-20" style="text-align: center;" >Companies</h6>
+                            <i style="color: crimson;font-size: 100px;" class="fa fa-3x fa-industry  mb-4"></i>
+                            <h2  class="f-right"><span>{{complen}}</span></h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        
+        <div class="col-md-4 col-xl-4">
+            <div class="card bg-c-yellow order-card">
+                <a href="{% url 'login_permissions' %}">
+                    <div class="card-block">
+                        <h6 class="m-b-20" style="text-align: center;" >Login Permission</h6>
+                        <i style="color: crimson;font-size: 100px;" class="fa fa-3x fa-thumbs-up  mb-4"></i>
+                        <h2  class="f-right"><span><i class="fa fa-bell" aria-hidden="true"></i> <span style="background-color: rgb(221, 255, 0); border-radius: 10px; padding-left: 10px;padding-right: 10px;" class="badge-pill ">{{permlen}}</span></span></h2>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <div  class="col-md-4 col-xl-8">
+            
+            <canvas  id="myChart"></canvas>
+          </div>
+          
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+          <script>
+            var monthlyCountData = [
+                {% for month in monthly_count %}
+                    {
+                        
+                        count: {{ month.count }}
+                },
+                {% endfor %}
+            ];
+            const data = (Object.values(monthlyCountData));
+            const counts = [];
+            for (let i = 0; i < data.length; i++) {
+                counts.push(data[i].count);
+              }
+            console.log(counts)
+
+            const ctx = document.getElementById('myChart');
+            Chart.defaults.color = 'white';
+            Chart.defaults.borderColor = 'rgba(0, 0, 0, 0.3)';
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun','july','aug','sep','oct','nov','des'],
+                datasets: [{
+                  label: '# number of register',
+                  data: counts,
+                  backgroundColor: [
+      'rgba(255,0,0, 0.7)',
+      'rgba(255,165,0, 0.7)',
+      'rgba(255,255,0, 0.7)',
+      'rgba(0,128,0, 0.7)',
+      'rgba(0,0,255, 0.7)',
+      'rgba(153, 102, 255, 0.7)',
+      'rgba(201, 203, 207, 0.7)',
+      'rgba(255, 205, 86, 0.7)',
+      'rgba(75, 192, 192, 0.7)',
+      'rgba(54, 162, 235, 0.7)',
+      'rgba(153, 102, 255, 0.7)',
+      'rgba(201, 203, 207, 0.7)',
+    ],
+                  borderWidth: 1
+                }]
+                
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        
+	</div>
+</div>
+
+
+
+    
+
+{% endblock content %}
+    

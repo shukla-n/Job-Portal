@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<style>
+    .button-64 {
+        align-items: center;
+        background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+        border: 0;
+        border-radius: 8px;
+        box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        display: flex;
+        font-family: Phantomsans, sans-serif;
+        font-size: 20px;
+        justify-content: center;
+        line-height: 1em;
+        max-width: 100%;
+        min-width: 140px;
+        padding: 3px;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+      
+      .button-64:active,
+      .button-64:hover {
+        outline: 0;
+      }
+      
+      .button-64 span {
+        background-color: rgb(5, 6, 45);
+        padding: 16px 24px;
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
+      }
+      
+      .button-64:hover span {
+        background: none;
+      }
+      
+      @media (min-width: 768px) {
+        .button-64 {
+          font-size: 24px;
+          min-width: 196px;
+        }
+      }
+</style>
+    <div style="background-color: rgba(189, 195, 195, 0.21);" class="container-xxl  p-0">
+
+        <!-- Job Detail Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="row gy-5 gx-4">
+                    <div style="border-radius: 25px; padding: 35px;background-color: black;box-shadow: 0px 0px 5px rgb(241, 241, 245);" class="col-lg-8">
+                        <div style="border-radius: 25px;box-shadow: 0px 0px 5px darkblue;padding: 20px; background-image: url('{% static 'img/jobpost.jpg' %}');background-size: 100% 100%;" class="d-flex align-items-center mb-5">
+                            <img class="flex-shrink-0 img-fluid border rounded" src="{{ post.rel_comp_comp.company_logo.url }}" alt="" style="width: 80px; height: 80px;">
+                            <div style="color: rgba(255, 255, 255, 0.758);" class="text-start ps-4">
+                                <h3 style="color: rgb(161, 238, 238);" class="mb-3">{{ post.jobtitle }}</h3>
+                                <h5 style="color: rgba(255, 255, 255, 0.758);" class="mb-3">{{ post.rel_comp_comp.company_name }}</h5>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ post.location }}</span>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{ post.jobtype }}</span>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>₹{{ post.price_range }}</span>
+                            </div>
+                        </div>
+
+                        <div style="color: rgba(255, 255, 255, 0.758);" class="mb-5">
+                            <h4 style="color: rgb(161, 238, 238);" class="mb-3">Job description :</h4>
+                            <p>{{ post.job_discription }}</p>
+                            <h4 style="color: rgb(161, 238, 238);" class="mb-3">Responsibility :</h4>
+                            <p>{{ post.required }}</p>
+                            <h4 style="color: rgb(161, 238, 238);" class="mb-3">Qualifications :</h4>
+                            <p>{{ post.education }}</p>
+                        </div>
+        
+                        <div class="">
+                            <h6 style="color: blueviolet;" class="mb-4">Apply For The Job</h6>
+                            
+                            <form  method="post">
+                                {% csrf_token %}
+
+                                {% if request.user.id in apl %}
+                                    <p style="border: 2px solid;width: fit-content;padding: 2px;background-color: rgb(234, 8, 212);border-radius: 10px;color: white;">Already Applied</p>
+                                {% else %}
+                                    <!-- <input type="checkbox" name="apply"> -->
+                                    <button class="button-64" role="button">Apply</button>
+                                {% endif %}
+  
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- <a href="{% url 'apply_sts' post.id %}"><button>{% if apl.apply_status %} Apply {% else %} Closed {% endif %} </button></a> -->
+
+                    <div class="col-lg-4">
+                        <div style="border-radius: 25px;color: rgba(255, 255, 255, 0.758);:box-shadow: 0px 0px 5px darkblue;background-image: url('{% static 'img/detjob1.jpg' %}');background-size: 100% 100%;" class="  p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                            <h4  style="color: rgb(161, 238, 238);" class="mb-4">Job Summery</h4>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: {{ post.posttime }}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{ post.vacancy }}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{ post.vacancy }} </p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ₹{{ post.price_range }}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{ post.location }}</p>
+                            <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: {{ post.last_date }}</p>
+                        </div>
+                        <div style="border-radius: 25px;color: rgba(255, 255, 255, 0.758);box-shadow: 0px 0px 5px darkblue;background-image: url('{% static 'img/detjob2.jpg' %}');background-size: 100% 100%;"  class="  p-5 wow slideInUp" data-wow-delay="0.1s">
+                            <h4 style="color: rgb(161, 238, 238); class="mb-4">Company Detail</h4>
+                            <p class="m-0">{{ post.rel_comp_comp.about_us_discpt }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Job Detail End -->
+        <script>
+            const button = document.getElementById('my-button');
+            button.disabled = false;
+        </script>
+
+</html>
+{% endblock content %}

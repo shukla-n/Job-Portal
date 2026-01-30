@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<style>
+    .joblist11{
+        background-image: ;
+        
+    }
+</style>
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img style="height: 500px;" class="img-fluid" src="{% static 'img/job11.png' %}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(20, 21, 21, 0);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <p style="text-shadow: 5px 5px 5px black;font-size: 60px; font-weight: bold;color: rgb(246, 248, 244);" class="coursel-heading" class="display-3 text-white animated slideInDown mb-4">The Easiest Way to<br>  Get Your New Job</p>
+                            <!-- <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p> -->
+                            <!-- <a href="" class="btn btn-primary py-md-2 px-md-4 me-3 animated slideInLeft">Search A Job</a>
+                            <a href="" class="btn btn-secondary py-md-2 px-md-4 animated slideInRight">Find A Talent</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img style="height: 500px;" class="img-fluid" src="{% static 'img/job11.png' %}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(20, 21, 21, 0)">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <p style="text-shadow: 5px 5px 5px black;font-size: 60px; font-weight: bold;color: rgb(253, 253, 253);" class="coursel-heading" class="display-3 text-white animated slideInDown mb-4">Your Dream Jobs is Waiting </p>
+                            <!-- <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p> -->
+                            <!-- <a href="" class="btn btn-primary py-md-2 px-md-4 me-3 animated slideInLeft">Search A Job</a>
+                            <a href="" class="btn btn-secondary py-md-2 px-md-4 animated slideInRight">Find A Talent</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Search Start -->
+<div class="container-fluid  mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;background-color: cornflowerblue;">
+    <div class="container">
+        <form action="">
+        <div class="row g-2">
+            
+            <div class="col-md-10">
+                <div class="row g-2">
+                    <div class="col-md-4">
+                        <input name="jobtitle" type="text" class="form-control border-0" placeholder="Search Job..." />
+                    </div>
+                    <div class="col-md-4">
+                        <select name="category" class="form-select border-0">
+                            <option value="" selected>Category</option>
+                            <option value="IT FIELD">IT FIELD</option>
+                            <option value="CUSTOMER SERVICE">CUSTOMER SERVICE</option>
+                            <option value="HUMAN RESOURCE">HUMAN RESOURCE</option>
+                            <option value="MECHANICAL JOBS">MECHANICAL JOBS</option>
+                            <option value="WORK FROM HOME">WORK FROM HOME</option>
+                            <option value="AUTOMOBILE">AUTOMOBILE</option>
+                            <option value="TEACHING & EDUCATION">TEACHING & EDUCATION</option>
+                            <option value="DESIGN & CREATIVE">DESIGN & CREATIVE</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input name="location" type="text" class="form-control border-0" placeholder="location" />
+                    </div>
+                    <div class="col-md-4">
+                        <select name="price" class="form-select border-0">
+                            <option value="" selected>Price Range</option>
+                            <option value="less Than 10000/-">less Than 10000/-</option>
+                            <option value="10000-25000">10000-25000</option>
+                            <option value="25000-40000">25000-40000</option>
+                            <option value="40000-55000">40000-55000</option>
+                            <option value="55000-70000">55000-70000</option>
+                            <option value="70000-85000">70000-85000</option>
+                            <option value="85000-100000">85000-100000</option>
+                            <option value="above 100000/-">above 100000/-</option>
+                        </select>
+                    </div>
+                    
+                </div>
+            
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-dark border-0 w-100">Search</button>
+            </div>
+        </form> 
+        </div>
+    </div>
+</div>
+<!-- Search End -->
+
+
+<!-- Category Start -->
+<div class="container-xxl py-">
+    <div class="container">
+        <h1 style="color: white;" class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+        <div  class="row g-4">
+            <div  class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a  style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=IT FIELD">
+                    <i style="color: white;" class="fa fa-3x fa-laptop  mb-4"></i>
+                    <h6 class="mb-3">IT field</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=CUSTOMER SERVICE">
+                    <i style="color: white;" class="fa fa-3x fa-headset  mb-4"></i>
+                    <h6 class="mb-3">Customer Service</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=HUMAN RESOURCE">
+                    <i style="color: white;" class="fa fa-3x fa-user-tie  mb-4"></i>
+                    <h6 class="mb-3">Human Resource</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;background-size: 100% 100%;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=WORK FROM HOME">
+                    <i style="color: white;" class="fa fa-3x fa-home  mb-4"></i>
+                    <h6 class="mb-3">Work From Home</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}'); background-attachment:fixed;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=MECHANICAL JOBS">
+                    <i style="color: white;"class="fa fa-3x fa-cogs  mb-4"></i>
+                    <h6 class="mb-3">Mechanical Jobs</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}'); background-attachment: fixed;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=AUTOMOBILE">
+                    <i style="color: white;" class="fa fa-3x fa-car  mb-4"></i>
+                    <h6 class="mb-3">Automobile</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;background-size: 100% 100%;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=TEACHING & EDUCATION">
+                    <i style="color: white;" class="fa fa-3x fa-university  mb-4"></i>
+                    <h6 class="mb-3">Teaching & Education</h6>
+                    
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a style="box-shadow: 2px 2px 10px crimson;background-image: url('{% static 'img/bg-01.jpg' %}');background-attachment: fixed;background-size: 100% 100%;" class="cat-item rounded p-4" href="{% url 'employee_home' %}?category=DESIGN & CREATIVE">
+                    <i style="color: white;" class="fa fa-3x fa-drafting-compass  mb-4"></i>
+                    <h6 class="mb-3">Design & Creative</h6>
+                    
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Category End -->
+
+<!-- Jobs Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 style="color: white;" class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+            
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    
+                    
+                    {% for post in post %}
+                    
+                    {% if post.status %}
+
+                        <div style=" border-radius: 25px; color: rgba(255, 255, 255, 0.758);box-shadow: 0px 0px 15px rgb(7, 7, 12);padding: 50px;background-image: url('{% static 'img/newlist.jpg' %}');background-size: 100% 100%;" class="job-item  mb-4">
+                            
+            
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid border rounded" src="{{post.rel_comp_comp.company_logo.url}}" alt="" style="width: 80px; height: 80px;">
+                                    <div class="text-start ps-4">
+                                        <h5 style="color: rgb(173, 220, 242);" class="mb-3">{{ post.jobtitle }}</h5>
+                                        <h6 style="color: rgb(248, 150, 217);">{{post.rel_comp_comp}}</h6>
+                                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ post.location }}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{ post.jobtype }}</span>
+                                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>₹{{ post.price_range }}</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                    <div class="d-flex mb-3">
+                                        
+                                        <a style="box-shadow: 0px 0px 5px darkred;" class="btn btn-info" href="{% url 'job_details' post.id %}">Apply Now</a>
+                                    </div>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{ post.posttime }}</small>
+                                </div>
+                                <p style="text-align: left;">{{ post.short_discription }}</p>
+                                <small>{{ post.category }}</small>
+                            </div>
+                            
+                                
+                        </div>
+                    
+                    {% endif %}
+    
+                    {% endfor %}
+
+                    <!-- <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Jobs End -->
+
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-4.jpg' %}" style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
+
+{% endblock content %}

@@ -1,0 +1,126 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load static %}
+<!-- <form method="post">
+    {%csrf_token%}
+    <label for="">User name</label> <input type="text" name="username"><br><br>
+    <label for="">First name</label> <input type="text" name="firstname"><br><br>
+    <label for="">Last name</label> <input type="text" name="lastname"><br><br>
+    <label for="">Email</label> <input type="email" name="email"><br><br>
+    
+    
+    <label for="">Password</label> <input type="password" name="password1"><br><br>
+    <label for="">Confirm Password</label> <input type="password" name="password2"><br><br>
+    
+    <input type="submit" value="Register">
+
+{% for msg in messages %}
+    <br><span style="color:{% if msg.tags == 'success' %}green{% else %}red{% endif %}">{{ msg }}</span><br>
+{% endfor %}
+
+</form> -->
+
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+    <style>
+      .cascading-right {
+        margin-right: -50px;
+      }
+  
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+    </style>
+  
+    <!-- Jumbotron -->
+    <div class="container py-3">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-4 mb-1 mb-lg-0">
+                <div class="card cascading-right" style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px);">
+                    <div class="card-body p-2 shadow-5 text-center">
+                        <h2 class="fw-bold mb-5">Sign up now</h2>
+                        <form method="post">
+                          {% csrf_token %}
+                            <div class="form-outline mb-4">
+                                <input name="username" type="text" id="form3Example3" class="form-control" />
+                                <label class="form-label" for="form3Example3">Username</label>
+                            </div>
+
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+                              <div class="col-md-6 mb-1">
+                                <div class="form-outline">
+                                  <input name="firstname" type="text" id="form3Example1" class="form-control" required />
+                                  <label class="form-label" for="form3Example1">First name</label>
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-1">
+                                <div class="form-outline">
+                                  <input name="lastname" type="text" id="form3Example2" class="form-control" required />
+                                  <label class="form-label" for="form3Example2">Last name</label>
+                                </div>
+                              </div>
+                            </div>
+  
+                            <!-- Email input -->
+                            <div class="form-outline mb-1">
+                              <input name="email" type="email" id="form3Example3" class="form-control" required />
+                              <label class="form-label" for="form3Example3">Email address</label>
+                            </div>
+  
+                            <!-- Password input -->
+                            <div class="form-outline mb-1">
+                              <input name="password1" type="password" id="password-field" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+                              <label class="form-label" for="form3Example4">Password</label>
+                            </div>
+
+                            <div class="form-outline mb-1">
+                                <input name="password2" type="password" id="password-field" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required />
+                                <label class="form-label" for="form3Example4">Confirm Password</label>
+                            </div>
+
+                            <label for="show-password-toggle">
+                              <input type="checkbox" id="show-password-toggle" onclick="togglePasswordVisibility()">
+                              Show Password
+                            </label>
+  
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-1">
+                              Sign up
+                            </button>
+                        
+                            <!-- Register buttons -->
+                
+                        </form>
+                        {% for msg in messages %}
+                            <br><span style="color:{% if msg.tags == 'success' %}green{% else %}red{% endif %}">{{ msg }}</span><br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+  
+            <div class="col-lg mb-1 mb-lg-0">
+              <img style="height: 575px;" src="{% static 'img/job13.jpg' %}" class="w-100 rounded-4 shadow-4"
+                alt="" />
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+  <!-- Section: Design Block -->
+
+
+  <script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById("password-field");
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+        } else {
+          passwordField.type = "password";
+        }
+      }
+  </script>
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load static %}
+<!-- <h3>LOGIN</h3>
+
+<form method="post">
+    {%csrf_token%}
+    <label for="">User name</label> <input type="text" name="username"><br><br>
+
+    <label for="">Password</label> <input type="password" name="password"><br><br>
+
+    <input type="submit" value="Login">
+
+    <br><a href="">Forgot password</a>
+{% for msg in messages %}
+    <br><span style="color:{% if msg.tags == 'success' %}green{% else %}red{% endif %}">{{ msg }}</span><br>
+{% endfor %}
+
+</form> -->
+
+
+    <div class="container py-2 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-60">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{% static 'img/login2.jpg' %}"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;height: 550px;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        <img style="width: 300px;" src="{% static 'img/newlog.png' %}" alt="">
+
+                    </div>
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="form-outline mb-4">
+                            <input type="text" name="username"  class="form-control form-control-lg" />
+                            <label class="form-label" for="">Username</label>
+                        </div>
+    
+                        <div class="form-outline mb-4">
+                            <input name="password" type="password" id="password-field" class="form-control form-control-lg" />
+                            <label class="form-label"  for="">Password</label>
+                        </div>
+                        <label for="show-password-toggle">
+                          <input type="checkbox" id="show-password-toggle" onclick="togglePasswordVisibility()">
+                          Show Password
+                        </label>
+                        <!-- <div class="pt-1 mb-4"> -->
+                            <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                        <!-- </div> -->
+    
+                        
+                    </form>
+                    
+                        {% for msg in messages %}
+                            <br><span style="color:{% if msg.tags == 'success' %}green{% else %}red{% endif %}">{{ msg }}</span><br>
+                        {% endfor %}
+                    <a class="small text-muted" href="{% url 'employee_forgot_password' %}">Forgot password?</a>
+                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? 
+                            Register here<br>
+                            <a style="color: #393f81; padding-right: 20px;" href="{% url 'employee_create' %}"><i class="fa fa-user-circle" aria-hidden="true"></i> Employee</a>
+                            <span> </span>
+                            <a style="color: #393f81;" href="{% url 'company_create' %}"><i class="fa fa-industry" aria-hidden="true"></i>Company</a><br>
+                        
+                        </p>
+                        
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById("password-field");
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+        } else {
+          passwordField.type = "password";
+        }
+      }
+    </script>
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<div class="container">
+<h2 style="text-align: center;">DESIGN & CREATIVE</h2>
+{% for post in post %}
+                    
+    {% if 'DESIGN & CREATIVE' in post.category   %}
+        <div style="border-radius: 10px;color: white;box-shadow: 0px 0px 15px rgb(7, 7, 12);padding: 50px;background-image: url('{% static 'img/1234list.jpg' %}');background-size: 100% 100%;" class="job-item  mb-4">
+            
+            
+            <div class="row g-4">
+                <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                    <img class="flex-shrink-0 img-fluid border rounded" src="{{post.rel_comp_comp.company_logo.url}}" alt="" style="width: 80px; height: 80px;">
+                    <div class="text-start ps-4">
+                        <h5 style="color: white;" class="mb-3">{{ post.jobtitle }}</h5>
+                        <h6 style="color: white;">{{post.rel_comp_comp}}</h6>
+                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ post.location }}</span>
+                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{ post.jobtype }}</span>
+                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>₹{{ post.price_range }}</span>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                    <div class="d-flex mb-3">
+                        
+                        <a style="box-shadow: 0px 0px 5px darkred;" class="btn btn-info" href="{% url 'job_details' post.id %}">Apply Now</a>
+                    </div>
+                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>{{ post.posttime }}</small>
+                </div>
+                <p style="text-align: left;">{{ post.short_discription }}</p>
+                <small>{{ post.category }}</small>
+            </div>
+                            
+                                
+        </div>
+                    
+    {% endif %}
+    
+{% endfor %}
+
+</div>   
+{% endblock content %}
+    

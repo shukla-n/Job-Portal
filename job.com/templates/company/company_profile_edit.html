@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    body{
+        color: black;
+    }
+    .card {
+        margin-bottom: 1.5rem;
+        box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+    }
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #e5e9f2;
+        border-radius: .2rem;
+    }
+    .card-header:first-child {
+        border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
+    }
+    .card-header {
+        border-bottom-width: 1px;
+    }
+    .card-header {
+        padding: .75rem 1.25rem;
+        margin-bottom: 0;
+        color: inherit;
+        background-color: #fff;
+        border-bottom: 1px solid #e5e9f2;
+    }
+    input{
+        margin-bottom: 20px;
+        
+    }
+    textarea{
+        margin-bottom: 20px;
+    }
+  
+</style>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="container ">
+
+    <div class="row">
+        <div class="col-md-12 col-xl-11">
+
+            <div  class="card">
+                <div style="background-color: blueviolet" class="card-header">
+                    <h5 style="color: #fff;" class="card-title mb-0">Profile Settings</h5>
+                </div>
+            </div>
+              
+
+        <div class="col-md-15 col-xl-16">
+            <div class="tab-content">
+                
+
+                <div class="card">
+                        
+                        
+                    <div style="background-image: url('{% static 'img/bg-01.jpg' %}');background-size: 100% 100%;background-attachment: fixed;" class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div  class="form-group ">
+                                        <label  for="company_name">Company Name:<span style="color: red;">*</span></label>
+                                        <input   style="background-color: rgb(189, 212, 239);" value="{{ profile.company_name }}" type="text" class="form-control" id="company_name" name="company_name" required>
+                                    </div>
+                                        <div class="form-group">
+                                            <label for="slogan">Company Slogan<span style="color: red;">*</span> :</label>
+                                            <input style="background-color: rgb(189, 212, 239);" value="{{ profile.company_slogam }}" name="slogan" type="text" class="form-control" id="slogan" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                    
+                                        <label for="">Upload Company Logo :</label>
+                                        <input accept="image/*" type="file" name="company_logo" id="">
+                                        <br>
+                                        <label for="">Upload Cover image :</label>
+                                        <input type="file" name="cover_image" id="">
+                                        
+                                    </div>
+                                   
+                                    
+                                    <div class="form-group col-md-6">
+                                        <h5>About as</h5>
+                                        <label for="">Descriptions<span style="color: red;">*</span> :</label>
+                                        <textarea style="background-color: rgb(189, 212, 239);" name="about_disc" rows="2" class="form-control" id="about_disc" required>{{ profile.about_us_discpt }}</textarea>
+                                        <label for="">Upload image :</label>
+                                        <input type="file" name="about_img" id="">
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <h5>Other details</h5>
+                                        <label for="">Title  :</label>
+                                        <input style="background-color: rgb(189, 212, 239);" value="{{ profile.outher_det_title }}" name="outh_title" type="text" class="form-control" id="outh_title">
+                                        <label for="">Descriptions :</label>
+                                        <textarea style="background-color: rgb(189, 212, 239);" name="outh_disc" rows="2" class="form-control" id="inputBio" placeholder="Tell something about yourself">{{ profile.outher_det_discription }}</textarea>
+                                        <label for="">Upload image :</label>
+                                        <input type="file" name="outh_img" id="">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Location<span style="color: red;">*</span> :</label>
+                                        <input style="background-color: rgb(189, 212, 239);" value="{{ profile.company_location }}" name="location" type="text" class="form-control" required>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <button class="col-xl-2 bg-info">Save</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                       
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+{% endblock content %}
+    
